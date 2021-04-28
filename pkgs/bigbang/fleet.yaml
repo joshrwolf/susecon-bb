@@ -1,0 +1,30 @@
+namespace: bigbang
+helm:
+  chart: git@repo1.dso.mil:platform-one/big-bang/bigbangt.git//chart?ref=1.6.0
+
+  values:
+    flux:
+      internval: 1m
+      rollback:
+        cleanupOnFail: false
+    
+    istio:
+      enabled: true
+    
+    clusterAuditor:
+      enabled: false
+
+    monitoring:
+      enabled: false
+    
+    logging:
+      enabled: false
+    
+    fluentbit:
+      enabled: false
+
+    gatekeeper:
+      enabled: true
+
+    twistlock:
+      enabled: false
