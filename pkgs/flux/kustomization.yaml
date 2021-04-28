@@ -1,0 +1,4 @@
+namespace: flux-system
+
+resources:
+  - https://github.com/fluxcd/flux2/manifests/install?ref=v0.13.1
