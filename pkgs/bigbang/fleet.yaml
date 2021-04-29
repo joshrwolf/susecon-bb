@@ -1,4 +1,6 @@
+defaultNamespace: bigbang
 namespace: bigbang
+
 helm:
   chart: git::https://repo1.dso.mil/platform-one/big-bang/bigbang.git//chart?ref=1.6.0
 
