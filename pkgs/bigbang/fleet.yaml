@@ -8,6 +8,9 @@ helm:
       internval: 1m
       rollback:
         cleanupOnFail: false
+
+    istiooperator:
+      enabled: false
     
     istio:
       enabled: false
