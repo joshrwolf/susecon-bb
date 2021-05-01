@@ -10,7 +10,13 @@ helm:
         cleanupOnFail: false
     
     istio:
-      enabled: true
+      enabled: false
+
+    jaeger:
+      enabled: false
+
+    kiali:
+      enabled: false
     
     clusterAuditor:
       enabled: false
@@ -19,6 +25,9 @@ helm:
       enabled: false
     
     logging:
+      enabled: false
+
+    eckoperator:
       enabled: false
     
     fluentbit:
