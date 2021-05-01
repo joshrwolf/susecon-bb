@@ -46,6 +46,8 @@ diff:
   comparePatches:
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
+    name: gatekeeper
+    namespace: bigbang
     operations:
       - { "op": "remove", "path": "/metadata/labels" }
       - { "op": "remove", "path": "/spec/chart/spec/interval" }
@@ -55,10 +57,13 @@ diff:
       - { "op": "remove", "path": "/spec/test/enable" }
   - apiVersion: helm.toolkit.fluxcd.io/v1beta1
     kind: GitRepository
+    name: gatekeeper
+    namespace: bigbang
     operations:
       - { "op": "remove", "path": "/metadata/labels" }
       - { "op": "remove", "path": "/spec/interval" }
   - apiVersion: v1
     kind: Namespace
+    name: gatekeeper-system
     operations:
       - { "op": "remove", "path": "/metadata/labels" }
