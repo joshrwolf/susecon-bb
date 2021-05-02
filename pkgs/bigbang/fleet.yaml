@@ -9,39 +9,6 @@ helm:
       rollback:
         cleanupOnFail: false
 
-    istiooperator:
-      enabled: false
-    
-    istio:
-      enabled: false
-
-    jaeger:
-      enabled: false
-
-    kiali:
-      enabled: false
-    
-    clusterAuditor:
-      enabled: false
-
-    monitoring:
-      enabled: false
-    
-    logging:
-      enabled: false
-
-    eckoperator:
-      enabled: false
-    
-    fluentbit:
-      enabled: false
-
-    gatekeeper:
-      enabled: true
-
-    twistlock:
-      enabled: false
-
 diff:
   comparePatches:
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
@@ -67,3 +34,49 @@ diff:
     name: gatekeeper-system
     operations:
       - { "op": "remove", "path": "/metadata/labels" }
+
+targetCustomizations:
+  - name: tenant
+    helm:
+      monitoring:
+        enabled: true
+
+    clusterSelector:
+      matchLabels:
+        cloud: aws
+
+  - name: edge
+    helm:
+      istio:
+        enabled: true
+
+      jaeger:
+        enabled: false
+
+      kiali:
+        enabled: false
+      
+      clusterAuditor:
+        enabled: false
+
+      monitoring:
+        enabled: false
+      
+      logging:
+        enabled: false
+
+      eckoperator:
+        enabled: false
+      
+      fluentbit:
+        enabled: false
+
+      gatekeeper:
+        enabled: false
+
+      twistlock:
+        enabled: false
+    
+    clusterSelector:
+      matchLabels:
+        type: k3s
